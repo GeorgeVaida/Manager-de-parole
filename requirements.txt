@@ -1,0 +1,5 @@
+cryptography
+pyotp
+qrcode
+flet
+Pillow
