@@ -4,7 +4,7 @@ from controllers.vault_controller import encrypt_and_save
 from views.shared.navbar import create_appbar
 
 def AddView(page: ft.Page) -> ft.View:
-    #!! separate? return [color , value]
+    
     def check_password(e):
         score = password_strenght.calculate(password_field.value)
         
@@ -37,7 +37,7 @@ def AddView(page: ft.Page) -> ft.View:
             strength_label.value = "Very Strong"
             strength_label.color = ft.Colors.GREEN
 
-    #!! separate ? + add to displaypage?
+    
     async def copy_action():
         txt = display_pass_field.value
         await ft.Clipboard().set(txt)   #https://flet.dev/docs/services/clipboard/

@@ -1,10 +1,8 @@
 from utils import dbconn, crypto
 from core import session
 
-#KEY : bytes | None  = None
 
 def auth(password: str):
-    #global KEY
 
     user_entry = dbconn.fetch_user()
 
