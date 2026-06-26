@@ -18,15 +18,19 @@ def TwoFactorView(page: ft.Page):
 
         alert_dialog.open = False
         page.update()
+
         if response[0] == True:
-            page.views.pop()
-            page.views.append(TwoFactorView(page))
-            page.update()
+            
+            page_content.controls = [
+                ft.Text("Two-Factor Authentication", size=28, weight=ft.FontWeight.BOLD),
+                ft.Divider(),
+                ft.Text("2FA is enabled", color=ft.Colors.GREEN),
+                ft.Button("Disable 2FA", on_click=disable_2FA, icon=ft.Icons.DANGEROUS, bgcolor=ft.Colors.RED)
+            ]
+            page_content.update()
         else:
-            alert_dialog.open = False
-            page.update()
-            page.show_dialog(ft.SnackBar(f"Failed : {response[1]}"))
-            page.update()
+            page.show_dialog(ft.SnackBar(ft.Text(f"Failed: {response[1]}")))
+
 
     alert_dialog = ft.AlertDialog(
         title=ft.Text("Scan with Google Authenticator"),
